@@ -5,6 +5,7 @@ This file explains how I implement the present version of particle filter algori
 Recall that the distribution of particles at any time represents the possiblility of location of the vehicle at the present time. With more detail, where there accumulates more particles, the higher possiblility for this place to be the vehicle's location. Therefore, the number of particles should depend on the following aspects.
 
 a. the initial distribution of position of vehicle: Gaussian 
+
 b. the dimension of the map: 2D
 
 c. The accuracy of iteration
@@ -13,5 +14,12 @@ Here, we used a 2-D normal distribution (based on GPS measurement) as the initia
 
 Sum up, we will set the number of particles num_particles = 8 * 17 = 136.
 
-### 2. An explaination of implementation of the function
-    void ParticleFilter::prediction(double delta_t, double std_pos[], double velocity, double yaw_rate).
+### 2. An explaination of implementation of the function: void ParticleFilter::prediction(double delta_t, double std_pos[], double velocity, double yaw_rate).
+
+a. It's worth to point out that the implemetation should be heavily depend on which value of std_pos[] we are going to use. Logically, the predicted position is the present position plus the displacement happend in a short time slot. Therefore, the noises come in in the step of making displacement. Namely, the noises can be a noise of turn and a noise of move. 
+
+However, as I checked from main.cpp, the real parameter we used here is sigma_pos-the GPS measurement uncertainty. This usage is misleading, in my opinion. GPS measurement uncertainty has nothing to do with the prediction step. I guess it is because of the measurement uncertainty has the same value as GPS measurement uncertainty for our simulator, Tiffany then used it directly without change a name. I checked the values of previous_velocity and previous_yawrate. They are below 10 and 0.08, respectively. Recall that std_pos = [0.3, 0.3, 0.01]. So it is not good to use them as a noise of turn or move. Otherwise, we will get a terrible prediction. 
+
+In the end, we decided to add the random Gaussian noises after we finished the addition of present location and a displacement which is calculated and based only on previous_velocity and previous_yawrate. 
+
+b. Transformation
