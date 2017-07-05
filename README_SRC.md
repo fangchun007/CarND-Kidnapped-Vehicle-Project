@@ -12,6 +12,6 @@ c. The accuracy of iteration
 
 Here, we used a 2-D normal distribution (based on GPS measurement) as the initial distribution of the vehicle. On the other hand, since we later use measurement of distances from landmarks instead, which has not worse accuracy than GPS (in the code, they are the same), to predict the location of the vehicle, one can believe that the distribution will have higher and higher peak as time goes by. 
 
-Sum up, we will set the number of particles 
+Sum up, we will set the number of particles as follows.
 
-$num_particles$
+    $num_particles = 8 * 17 = 136$
