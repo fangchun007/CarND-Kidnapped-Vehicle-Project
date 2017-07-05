@@ -14,4 +14,5 @@ Here, we used a 2-D normal distribution (based on GPS measurement) as the initia
 
 Sum up, we will set the number of particles num_particles = 8 * 17 = 136.
 
-
+2. An explaination of implementation of the function
+    void ParticleFilter::prediction(double delta_t, double std_pos[], double velocity, double yaw_rate).
