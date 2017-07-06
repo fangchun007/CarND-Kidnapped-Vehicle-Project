@@ -4,6 +4,7 @@ This file explains how I implement the present version of particle filter algori
 [//]: # (Image References)
 [image1]: ./Pictures/map.jpg
 [image2]: ./Pictures/Transform_Coordinate.jpg
+![equation](http://www.sciweavers.org/tex2img.php?eq=1%2Bsin%28mc%5E2%29&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=)
 
 
 ### 1. How do I set the number of particles?
