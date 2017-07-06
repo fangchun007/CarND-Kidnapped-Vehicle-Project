@@ -36,15 +36,9 @@ a. In the file particle_filter.h, the parameter std_landmark[] was explained as 
 
 b. Transform between vehicle's coordinate system and MAP's coordinate system.
 
-We refer the following picture.
-
 ![alt text][image2]
 
-    OL = OP + PL 
-       = OP + PLx'+ PLy'       
-Hence,
-    x_t = p.x + o.x*cos(p.theta) - o.y*sin(p.theta);
-      double y_t = p.y + o.x*sin(p.theta) + o.y*cos(p.theta);
+
 
 
 
