@@ -40,7 +40,9 @@ We refer the following picture.
 
 ![alt text][image2]
 
-$$OP$$
+\begin{equation}
+OL = OP + PL = OP + PLx'+ PLy'
+\end{equation}
 
 
 
