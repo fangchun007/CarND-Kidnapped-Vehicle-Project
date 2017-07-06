@@ -20,4 +20,11 @@ a. In my opinion, the implemetation heavily depends on which value of std_pos[] 
 
 In the end, we decide to add the random Gaussian noises, if we still use sigma_pos as the input value of the parameter std_pos, after we finished the addition of present location and the displacement whose calculation is based only on previous_velocity and previous_yawrate. 
 
+b. The prediction step will be carried out for every single particle. For a fixed particle, we will first decide whether yaw_rate should be considered as zero. Then split the process into two cases according to the judge result. Notice that we acctually use the same yaw_rate for every particle during one iteration. Therefore, if we can make clear the relation between yaw_rate and zero before one goes to the for-loop of particles, it will save some time.
+
+
+
+
+
+
 b. Transformation
