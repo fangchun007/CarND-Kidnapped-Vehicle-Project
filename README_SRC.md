@@ -6,9 +6,12 @@ This file explains how I implement the present version of particle filter algori
 [image2]: ./pictures/Transform_Coordinate.jpg
 [image3]: ./pictures/result_pic1.jpg
 [image4]: ./pictures/result_pic2.jpg
+[image5]: ./pictures/Particle_Filter_Flowchart.jpg
 
 
+### Particle Filter Flowchart
 
+![alt_text][image5]
 
 ### 1. How do I set the number of particles?
 
