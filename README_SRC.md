@@ -2,7 +2,7 @@ This file explains how I implement the present version of particle filter algori
 
 
 [//]: # (Image References)
-[image1]: ./Pictures/map.jpg
+[image1]: ./Pictures/MAP.jpg
 [image2]: ./Pictures/Transform_Coordinate.jpg
 
 
