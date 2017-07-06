@@ -40,11 +40,11 @@ We refer the following picture.
 
 ![alt text][image2]
 
-\begin{equation}
-OL = OP + PL = OP + PLx'+ PLy'
-\end{equation}
-
-![equation](OL = OP + PL = OP + PLx'+ PLy')
+    OL = OP + PL 
+       = OP + PLx'+ PLy'       
+Hence,
+    x_t = p.x + o.x*cos(p.theta) - o.y*sin(p.theta);
+      double y_t = p.y + o.x*sin(p.theta) + o.y*cos(p.theta);
 
 
 
