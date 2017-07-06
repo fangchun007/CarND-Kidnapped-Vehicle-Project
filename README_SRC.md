@@ -36,11 +36,11 @@ a. In the file particle_filter.h, the parameter std_landmark[] was explained as 
 
 b. Transform between vehicle's coordinate system and MAP's coordinate system.
 
-
-
+We refer the following picture.
 
 ![alt text][image2]
 
+$$OP$$
 
 
 
