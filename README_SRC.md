@@ -2,8 +2,8 @@ This file explains how I implement the present version of particle filter algori
 
 
 [//]: # (Image References)
-[image1]: ./Pictures/MAP.jpg
-[image2]: ./Pictures/Transform_Coordinate.jpg
+[image1]: ./pictures/MAP.jpg
+[image2]: ./pictures/Transform_Coordinate.jpg
 
 
 ### 1. How do I set the number of particles?
