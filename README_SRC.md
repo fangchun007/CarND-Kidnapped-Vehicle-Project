@@ -1,5 +1,11 @@
 This file explains how I implement the present version of particle filter algorithm. It also reveals my commends on the starter code of this project.
 
+
+[//]: # (Image References)
+[image1]: ./pictures/UFK_processingFlow.jpeg
+[image2]: ./pictures/Result_pic.png
+
+
 ### 1. How do I set the number of particles?
 
 Recall that the distribution of particles at any time represents the possiblility of location of the vehicle at the present time. With more detail, where there accumulates more particles, the higher possiblility for this place to be the vehicle's location. Therefore, the number of particles should depend on the following aspects.
@@ -14,6 +20,8 @@ Here, we used a 2-D normal distribution (based on GPS measurement) as the initia
 
 Sum up, we will set the number of particles num_particles = 8 * 17 = 136.
 
+![alt text][image1]
+
 ### 2. Explaination about the implementation of the function: void ParticleFilter::prediction(double delta_t, double std_pos[], double velocity, double yaw_rate).
 
 a. In my opinion, the implemetation heavily depends on which value of std_pos[] are we going to use. Logically, the predicted location of vehicle is the present position plus the displacement in the time slot delta_t. The noises come in in the step of displacement as the noise of turn and noise of move. However, if we check the places where we used this function in main.cpp, the real parameter used here is sigma_pos-the GPS measurement uncertainty. This usage is misleading, in my opinion. GPS measurement uncertainty should has nothing to do with prediction step. I guess it is because of the measurement uncertainty has the same value as GPS measurement uncertainty in our simulator, Tiffany then used GPS measurement uncertainty directly without change to another name. I also checked the values of previous_velocity and previous_yawrate. They were mostly below 10 and 0.08, respectively. Notice that std_pos = [0.3, 0.3, 0.01]. So it is not good to use them as a noise of turn or move. Otherwise, we will get a bad prediction. For example, distance of the displacement is approximately previous_velocity * delta_t = 1, where std_pos[0] = 0.3, accounted for around 30%.
@@ -24,9 +32,13 @@ b. The prediction step will be carried out for every single particle. For a fixe
 
 ### 3. About ParticleFilter::updateWeights(double sensor_range, double std_landmark[], std::vector\<LandmarkObs> observations, Map map_landmarks)
 
+a. In the file particle_filter.h, the parameter std_landmark[] was explained as an array of dimension 2, which contains standard deviation of range and standard deviation of bearing. This is not the case as I checked from the main.cpp where the updateWeights function was used. It contains the landmark measurement uncertainty in x and y direction. 
+
+b. Transform between vehicle's coordinate system and MAP's coordinate system.
 
 
 
 
 
-b. Transformation
+
+
